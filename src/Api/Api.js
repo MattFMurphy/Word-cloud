@@ -1,11 +1,7 @@
 /**
- * Catch all api class
- */
-
-/**
  * Grab data from a rest api
  * @argument endPoint -- Api endpoint to grab from
- * @returns Array of data if successful, false otherwise
+ * @returns Array of data if successful, throws an error if the response can't be de-jsoned
  */
 const getTopics = async (endPoint) => {
   let returner;
@@ -15,6 +11,9 @@ const getTopics = async (endPoint) => {
     .then((json) => {
       // console.log("Fetched:  ", json);
       returner = json;
+    })
+    .catch((error) => {
+      throw ("Can't resolve JSON, ", error);
     });
   return returner;
 };

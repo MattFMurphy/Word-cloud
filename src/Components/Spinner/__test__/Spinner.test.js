@@ -1,6 +1,7 @@
 import React from "react";
-import Spinner from "../Spinner";
 import { render, screen } from "@testing-library/react";
+
+import Spinner from "../Spinner";
 
 test("Spinner renders", () => {
   render(<Spinner />);

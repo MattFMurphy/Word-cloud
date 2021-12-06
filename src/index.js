@@ -1,5 +1,5 @@
-import "./Sass/index.scss";
-import "./Misc/topics.json";
+import "./Sass/index.scss"; //Misc sass
+import "./Misc/topics.json"; //Needed to fetch locally
 
 import React from "react";
 import ReactDOM from "react-dom";

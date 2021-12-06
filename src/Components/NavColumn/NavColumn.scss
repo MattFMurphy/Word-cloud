@@ -1,0 +1,36 @@
+$mobile-width: 768px;
+
+.brandwatch-word-cloud {
+  .word-cloud-navColumn {
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    &__topic {
+      text-align: left;
+      .topic-section {
+        margin-bottom: 30px;
+        &__name {
+          text-decoration: underline;
+        }
+        &__info {
+          &--POSITIVE--score {
+            span {
+              color: green;
+            }
+          }
+          &--NEGATIVE--score {
+            span {
+              color: red;
+            }
+          }
+          &--NEUTRAL--score {
+            span {
+              color: orange;
+            }
+          }
+        }
+      }
+    }
+  }
+}
