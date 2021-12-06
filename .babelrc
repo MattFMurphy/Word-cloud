@@ -1,0 +1,38 @@
+{
+  "env":{
+	"dev":{
+	  "plugins": ["@babel/syntax-dynamic-import", "@babel/transform-runtime"],
+	  "presets": [
+		[
+		  "@babel/preset-env",
+		  {
+			"modules": false
+		  }
+		]
+	  ]
+	},
+	"production":{
+	  "plugins": ["@babel/syntax-dynamic-import", "@babel/transform-runtime"],
+	  "presets": [
+		[
+		  "@babel/preset-env",
+		  {
+			"modules": "auto"
+		  }
+		]
+	  ]
+	},
+	"test":{
+		"plugins": ["@babel/syntax-dynamic-import", "@babel/transform-runtime"],
+		"presets": [
+		[
+		  "@babel/preset-env",
+		  {
+			"modules": "auto"
+		  }
+		],
+		["@babel/preset-react"],
+	  ]
+	}
+  }
+}
