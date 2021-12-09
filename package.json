@@ -1,7 +1,7 @@
 {
-  "name": "my-webpack-project",
+  "name": "word-cloud",
   "version": "1.0.0",
-  "description": "My webpack project",
+  "description": "Word Cloud",
   "main": "index.js",
   "directories": {
     "lib": "lib"
