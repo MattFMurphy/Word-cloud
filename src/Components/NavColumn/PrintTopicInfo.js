@@ -1,7 +1,7 @@
 import React from "react";
 
 /**
- * Helper Component
+ * Helper Component.  Just prints a bit of UI infomation.
  * @param {*} label
  * @param {*} value
  * @param {*} bonus helper class

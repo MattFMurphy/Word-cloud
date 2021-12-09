@@ -22,7 +22,13 @@ const config = {
             [
               "@babel/preset-env",
               {
-                targets: "defaults",
+                targets: {
+                  chrome: "62",
+                  safari: "11",
+                  edge: "40",
+                  firefox: "57",
+                  ie: "11",
+                },
               },
             ],
             "@babel/preset-react",

@@ -1,12 +1,11 @@
 $mobile-width: 768px;
 .brandwatch-word-cloud {
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
   & > .row {
     margin: 0;
     & > section {
-      padding-left: 0;
-      padding-right: 0;
+      //padding-left: 0;
+      // padding-right: 0;
       @media (min-width: $mobile-width) {
         min-height: 100vh;
       }

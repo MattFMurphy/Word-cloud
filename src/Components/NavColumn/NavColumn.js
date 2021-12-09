@@ -7,7 +7,11 @@ import { percentage } from "../../Utils/Percentage";
 import TopicSection from "./TopicSection";
 import { PrintTopicInfo } from "./PrintTopicInfo";
 
-const NavColumn = function ({ topic = null, loading }) {
+const NavColumn = function ({ activeTopic = null }) {
+  const emptyObject = (obj) => {
+    return JSON.stringify(obj) === JSON.stringify({});
+  };
+
   /**
    * Main generator function for the component
    * @param {*} topic - The topic Object
@@ -15,6 +19,7 @@ const NavColumn = function ({ topic = null, loading }) {
    */
   const populateMeta = (topic) => {
     const { id, pageType, label, sentiment, sentimentScore, volume } = topic;
+
     const getTopicSources = (pageType) => {
       let jsx = [];
       for (const key in pageType) {
@@ -60,19 +65,19 @@ const NavColumn = function ({ topic = null, loading }) {
           <PrintTopicInfo
             key="Positive sentiments"
             label="Positive sentiments"
-            value={sentiment.positive}
+            value={sentiment.positive ? sentiment.positive : 0}
             bonusClass="topic-section__info--POSITIVE--score"
           />
           <PrintTopicInfo
             key="Neutral sentiments"
             label="Neutral sentiments"
-            value={sentiment.neutral}
+            value={sentiment.neutral ? sentiment.neutral : 0}
             bonusClass="topic-section__info--NEUTRAL--score"
           />
           <PrintTopicInfo
             key="Negative sentiments"
             label="Negative sentiments"
-            value={sentiment.negative}
+            value={sentiment.negative ? sentiment.negative : 0}
             bonusClass="topic-section__info--NEGATIVE--score"
           />
         </TopicSection>
@@ -88,19 +93,29 @@ const NavColumn = function ({ topic = null, loading }) {
       </aside>
     );
   };
+  console.log(activeTopic);
+
   return (
     <nav
-      className={`word-cloud-navColumn ${
-        loading ? "word-cloud-navColumn--loading" : ""
-      } bg-light border row`}
+      className={`word-cloud-navColumn bg-light border row ${
+        emptyObject ? "justify-content-center" : ""
+      }`}
       role="navcolumn"
     >
-      <div className="word-cloud-navColumn__main-title">
+      {emptyObject(activeTopic) ? (
         <h2>
-          <strong>Topic Drilldown</strong>
+          <strong>Select a topic to start</strong>
         </h2>
-      </div>
-      {loading ? <Spinner /> : populateMeta(topic)}
+      ) : (
+        <>
+          <div className="word-cloud-navColumn__main-title">
+            <h2>
+              <strong>Topic Drilldown</strong>
+            </h2>
+          </div>
+          {populateMeta(activeTopic)}
+        </>
+      )}
     </nav>
   );
 };

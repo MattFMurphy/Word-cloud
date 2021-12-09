@@ -4,18 +4,15 @@
  * @returns Array of data if successful, throws an error if the response can't be de-jsoned
  */
 const getTopics = async (endPoint) => {
-  let returner;
-
-  await fetch(endPoint)
+  return fetch(endPoint)
     .then((response) => response.json())
     .then((json) => {
       // console.log("Fetched:  ", json);
-      returner = json;
+      return json;
     })
     .catch((error) => {
       throw ("Can't resolve JSON, ", error);
     });
-  return returner;
 };
 
 export { getTopics };
